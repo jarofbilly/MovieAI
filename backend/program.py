@@ -1,25 +1,23 @@
 import os
-from quart import Quart, jsonify, render_template, after_this_request
+from flask import Flask, jsonify, render_template, after_this_request
 from time import sleep
-from MovieLens import *
 import threading
 
 template_dir = os.path.abspath('../frontend')
 print(template_dir)
-app = Quart(__name__, template_folder=template_dir)
+app = Flask(__name__, template_folder=template_dir)
 
 
 @app.route("/")
-async def home():
-    return await render_template("index.html")
+def home():
+    return render_template("index.html")
 
 @app.route("/index.js")
-async def js():
-    return await render_template("index.js")
+def js():
+    return render_template("index.js")
 
 @app.route("/api/<string:title>")
-async def getStuff(title):
-    search(title)
+def getStuff(title):
     return jsonify({"stuff": "executing"})
 
 if __name__ == '__main__':
