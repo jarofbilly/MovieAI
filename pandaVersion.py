@@ -54,7 +54,7 @@ def addFilmToUsers():
                 with open(r'C:\archives\user.csv', 'a', newline='') as file:
                     write = csv.writer(file)
 #for userId we need to set users first               
-                    write.writerow([1,films, filmScore]) 
+                    write.writerow([userID,films, filmScore]) 
                     filmThere = True
             if(filmNumber == counter):
                 print(films)
