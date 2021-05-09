@@ -1,12 +1,13 @@
 import pandas as pd
 import numpy as np
 
+#change path as appropriate
 movie_data = pd.read_csv('C:/Users/Dominic/Downloads/archive/movies_metadata.csv',low_memory=False)
 movie_data['overview'] = movie_data['overview'].fillna('')
 file = open("lk","rb")
-
+#opens the file the sorted database is saved as
 #Can save the array with file = open("fileName","wb") then np.save(file)
-
+#loads the sorted database so it doesn't have to be recalculated every time
 sim_matrix = np.load(file)
 file.close
 indices = pd.Series(movie_data.index, index=movie_data['title']).drop_duplicates()
@@ -27,3 +28,7 @@ def content_based_recommender(title, sim_scores = sim_matrix):
     #sortedOrder = results.sort_values(['sim_scores'], ascending = False)
     # sortedOrder
     return results
+
+x = content_based_recommender("Toy Story")
+print(x.iat[0])
+print(x.iat[1])
