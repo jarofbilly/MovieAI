@@ -114,6 +114,12 @@ filmRating = groupedFilms.groupby('title').agg({'rating': [np.mean]})
 sortedFilms = filmRating.sort_values([('rating', 'mean')],ascending = False)
 #prints first 5 values
 print(sortedFilms.head(5))
+ratingList= []
+for index, row in sortedFilms.head(5).iterrows():
+    ratingList.append(index)
+
+print(ratingList)
+
 contentBasedReccomendation = content_based_recommender(filmWatched.title())
 mlList = []
 for i in range(5):
