@@ -114,5 +114,9 @@ filmRating = groupedFilms.groupby('title').agg({'rating': [np.mean]})
 sortedFilms = filmRating.sort_values([('rating', 'mean')],ascending = False)
 #prints first 5 values
 print(sortedFilms.head(5))
+contentBasedReccomendation = content_based_recommender(filmWatched.title())
+mlList = []
+for i in range(5):
+    mlList.append(contentBasedReccomendation.iat[i])
 print(content_based_recommender(filmWatched.title()))
 finished = input("Press Any key to finish")
