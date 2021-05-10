@@ -95,9 +95,8 @@ while(anotherFilm.lower() == 'y'):
         firstTime=False
         genreOfFilm, filmWatched = addFilmToUsers()
     else:
-        anotherFilm = input("Would you like to enter another film? 'y' or 'n'") 
-        if(anotherFilm.lower == 'y'):
-            genreOfFilm, filmWatched = addFilmToUsers()
+        genreOfFilm, filmWatched = addFilmToUsers()
+        anotherFilm = input("Would you like to enter another film? 'y' or 'n'")   
 
     
     #if(firstTime == False):
