@@ -89,16 +89,16 @@ def content_based_recommender(title, sim_scores = sim_matrix):
 firstTime = True
 anotherFilm = 'y'
 genreOfFilm, filmWatched = addFilmToUsers()
-while(anotherFilm != 'y' or anotherFilm != 'n'):
-    anotherFilm = input("Would you like to enter another film? 'y' or 'n'")
+
+anotherFilm = input("Would you like to enter another film? 'y' or 'n'")
 while(anotherFilm.lower() == 'y'):
     if(firstTime == True):
         firstTime=False
         genreOfFilm, filmWatched = addFilmToUsers()
     else:
         genreOfFilm, filmWatched = addFilmToUsers()
-        while(anotherFilm != 'y' or anotherFilm != 'n'):
-            anotherFilm = input("Would you like to enter another film? 'y' or 'n'")
+        
+        anotherFilm = input("Would you like to enter another film? 'y' or 'n'")
 
     
     #if(firstTime == False):
